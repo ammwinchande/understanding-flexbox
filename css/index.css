@@ -80,5 +80,36 @@ li:nth-child(2) {
 /* Flex shorthand like border: 1px solid red, flex it has it's own shorthand. It allows to you to set flex-grow, flex-shrink and flex-basis (GSB)-> use this other than doing each individually */
 
 li:nth-child(1) {
-	flex: 0 1 auto; /* flex-grow, flex-shrink, flex-basis */
+	flex: 0 1 auto; /* flex-grow, flex-shrink, flex-basis = flex: default; */
+	/* flex: 0 0 auto; increase horizontally if more contents and craetes horizontal scrollbar = flex: none; */
+	/* flex: 1 1 auto; compute initial width automatically, but grow to fit the entire available space and shrink if necessary = flex: auto;*/
+}
+
+/* Flex: "positive number" 0 1 2; */
+/*again, the "li" represents any list-item*/
+li {
+  /* flex: 2 1 0; same as flex: 2; set the initial width of the flex item to zero (ehm, no width?), grow the item to fill the available space, and finally shrink the item whenever possible */
+}
+
+/* flex: align-self: affect a single item without affecting the rest; */
+.more-flex ul {
+	display: flex;
+	border: 1px solid #dedede;
+	padding: 0;
+	justify-content: space-between;
+	align-items: flex-start;
+	min-height: 300px;
+}
+
+.more ul li {
+	width: 100px;
+	background-color: #8cacee;
+	margin: 8px;
+	color: #000;
+	flex: 1 1 auto;
+}
+
+#more-flex li:nth-child(3) {
+	background-color: red;
+	align-self: flex-end; /* can take: auto || flex-start || flex-end || center || baseline || stretch -> affect a single item only */
 }
