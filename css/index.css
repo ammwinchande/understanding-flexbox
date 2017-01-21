@@ -1,0 +1,84 @@
+/* understanding flexbox CSS: ammwinchande@gmail.com; */
+/* step 1: inorder to use flexbox, make sure the parent
+ *		   element is a flex container @ flexible container
+ *		   eg: <ul>: ul->parent must have a display: flex or inline-flex; li -> considered child elements
+					<li><!-- element content --></li>
+					<li><!-- element content --></li>
+					<li><!-- element content --></li>
+				</ul>;
+ */
+
+body {
+	width: 100%;
+}
+ /* Make parent element a flex container */
+ ul {
+ 	display: flex; /* or inline-flex */
+ 	border: 1px solid blue;
+ }
+
+ /* where ul represents flex container: flex container properties; */
+ ul {
+ 	flex-direction: row; /* column || row-reversed || column-reversed*/
+ }
+
+ ul {
+ 	flex-wrap: wrap; /* nowrap or no-wrap: Keep on taking more flex items without breaking (wrapping) || wrap-reversed */
+ }
+
+ ul {
+    flex-flow: row wrap; /* direction "row" and yes,wrap the items. or flex-flow: row nowrap || flex-flow: column wrap-reverse etc. */
+}
+
+ul {
+	align-items: flex-end;
+}
+
+.new-ul ul {
+	display: flex;
+	border: 1px solid red;
+	padding: 0;
+	background-color: #e8e8e9;
+}
+
+.new-ul ul {
+	justify-content: center; /* flex-start || flex-end || center || space-around || space-between*/
+}
+
+.new-ul ul{
+	align-items: stretch; /* flex-start || flex-end || center || baseline -> default: stretch */
+}
+
+/* style child elements */
+li {
+	width: 100px;
+	height: 100px;
+	background-color: #8cacea;
+	margin: 8px;
+	color: #000;
+}
+
+ /* where ul represents flex container: flex item properties; */
+
+ /* select first  li element within the ul */
+ li:nth-child(1) {
+ 	order: 1; /* order: starts from 0 to -ve or +ve values -> lowest to highest is how its ordered; like this will move to the last because all other child elements have order of 0, default value */
+ }
+
+ li:nth-child(2) {
+ 	order: 2;
+ }
+
+ li:nth-child(10) {
+ 	flex-grow: 1; /* allows to play with flexibility: can range from 0 to any +ve #. same with flex-shrink: the item will expand if there's extra space or shrink if there's no extra spaces */
+ }
+
+li:nth-child(2) {
+	flex-basis: 150px; /* specifies the initial size of a flex-item before it has been changed by flex-grow and flex-shrink: uses same units as the normal width - ems || percentages || rems || pixels; dafault its auto. */
+}
+
+/* Flex shorthand like border: 1px solid red, flex it has it's own shorthand. It allows to you to set flex-grow, flex-shrink and flex-basis (GSB)-> use this other than doing each individually */
+
+li:nth-child(1) {
+	flex: 0 1 auto; /* flex-grow, flex-shrink, flex-basis */
+}
